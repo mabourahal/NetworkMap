@@ -1,0 +1,16 @@
+{
+  "name": "NetworkMap",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "ejs": "*",
+    "express": "3.2.6",
+    "jsonfile": "^4.0.0",
+    "pg": "^6.1.0",
+    "pg-promise": "^5.9.7"
+  }
+}
