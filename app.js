@@ -196,8 +196,23 @@ app.post('/domaintest', function(req, res){
                 			for(b=0;b<y.nodes.length;++b)
                 				{
                 					var s = y.nodes[b];
-                					graph.nodes.push(s);
-                				}
+                					var f=0;
+                					var found = false;
+                					for(f=0;f<graph.nodes.length;++f)
+                					{
+                						console.log(graph.nodes[f]);
+                						if(s.id==graph.nodes[f].id)
+                							{
+                								found=true;
+                								break;
+                							}
+                					}
+                					if(found==false)
+                					{
+                						graph.nodes.push(s);
+                					}
+
+                					}
                 			var b=0;
                 			for(b=0;b<y.links.length;++b)
                 				{

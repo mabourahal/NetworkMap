@@ -11,6 +11,8 @@
     "express": "3.2.6",
     "jsonfile": "^4.0.0",
     "pg": "^6.1.0",
-    "pg-promise": "^5.9.7"
+    "pg-promise": "^5.9.7",
+    "simple-ssh": "*",
+    "ping": "*"
   }
 }
