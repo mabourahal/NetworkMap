@@ -62,7 +62,7 @@ app.post('/domaintest', function(req, res){
 	    var ssh = new SSH({
 	        host: hosts[i].ip_address,
 	        user: 'root',
-	        pass: '*******'
+	        pass: 'li69nux'
 	    });
 	    sshArr.push(ssh);
 	    var intID = parseInt(hosts[i].host_id)
@@ -178,13 +178,15 @@ app.post('/domaintest', function(req, res){
 	            {
 
                 	var file = 'public/tmp.json'
-                	fs.readFile(file,'utf-8', function(err, data) {
+                	fs.readFile(file,'utf8', function(err, data) {
                           var graph = {
                             	nodes:[],
                             	links:[]
                           }
-                		  var txt = data.split("\n");
+                		  var txt = data.replace(/(\r\n|\n|\r)/gm,"|").split("|");
                 		  var n=0;
+                		  console.log(txt);
+                		  console.log(data);
                 		  for(n=0;n<txt.length-1;++n)
                 		  {
 
@@ -228,6 +230,10 @@ app.post('/domaintest', function(req, res){
                               //console.error(err)
                             })
                 		  //console.log(JSON.stringify(obj));
+                          fs.unlink('public/tmp.json', function(err, result) {
+                            	  //next(err, list);
+                           });
+
                 		  console.log(graph);
           	            	//console.log(ip);
                           res.send(ip);
