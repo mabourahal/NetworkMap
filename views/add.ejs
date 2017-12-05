@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<style>
+
+	.links line {
+	  stroke: #999;
+	  stroke-opacity: 0.6;
+	}
+	
+	.nodes circle {
+	  stroke: #fff;
+	  stroke-width: 1.5px;
+	}
+	
+	text {
+	  font-family: sans-serif;
+	  font-size: 10px;
+	}
+	
+	</style>
+
+    <script>
+
+		function validateForm()
+		{
+			var x = document.forms["add_host"]["ip"].value;
+			
+		    var r = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
+			var t = x.match(r);
+			    if (t == null) {
+			        alert("invalid ip format");
+			        return false;
+			    }
+		}
+
+</script>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+	<link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+  
+  
+       <nav class="navbar navbar-default no-margin">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header fixed-brand">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" id="menu-toggle">
+<span class="fa fa-th-large" aria-hidden="true"></span>
+</button>
+         <a class="navbar-brand" href="#"><i class="fa fa-rocket fa-4"></i> Network App Map (NAP)</a>
+      </div>
+      <!-- navbar-header-->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <ul class="nav navbar-nav">
+            <li class="active">
+               <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="fa fa-th-large" aria-hidden="true"></span>
+               </button>
+            </li>
+         </ul>
+      </div>
+      <!-- bs-example-navbar-collapse-1 -->
+   </nav>
+   <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            <li>
+               <a href="/map"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x "></i></span> Dashboard</a>
+            </li>
+            <li class="active">
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>Add</a>
+               <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                  <li class="active"><a href="/add"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>Add Host</a></li>
+                  <li><a href="/connection"><span class="fa-stack fa-lg pull-left"><i class="fa fa-plus fa-stack-1x "></i></span>Add Connection</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#"> <span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Manage</a>
+               <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                  <li><a href="/view"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Manage Hosts</a></li>
+                  <li><a href="/view_con"><span class="fa-stack fa-lg pull-left"><i class="fa fa-wrench fa-stack-1x "></i></span>Manage Connections</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-youtube-play fa-stack-1x "></i></span>About</a>
+            </li>
+            <li>
+               <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
+            </li>
+         </ul>
+      </div>
+      <!-- /#sidebar-wrapper -->
+            <div id="page-content-wrapper">
+         <div class="container-fluid xyz">
+            <div class="row">
+     <div class="container">
+    <h1><%= title %></h1>
+    
+  <form action="/add" method="post" id="add_host" onsubmit="return validateForm()" >
+    <div class="form-group">
+      <label for="ip">IP:</label>
+      <input type="text" class="form-control" id="ip" placeholder="Enter Host Ip" name="ip" required>
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Host Name" name="name" required>
+    </div>
+    <button type="submit" class="btn btn-default">Add Host</button>
+  </form>
+</div>
+
+</div>
+
+
+   </div>
+         </div>
+            </div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="/script/script.js"></script>
+</body>
+
+</html>
